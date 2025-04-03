@@ -22,6 +22,10 @@ function result() {
     const insertYRandom = randomValueFromArray(insertY);
     const insertZRandom = randomValueFromArray(insertZ);
 
+    newStory = newStory.replaceAll(":insertx:", insertXRandom);
+    newStory = newStory.replaceAll(":inserty:", insertYRandom);
+    newStory = newStory.replaceAll(":insertz:", insertZRandom);
+
   if(customName.value !== '') {
     const name = customName.value;
 
