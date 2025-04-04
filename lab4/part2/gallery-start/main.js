@@ -9,10 +9,24 @@ const imageNames = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg', 'pic4.jpg', 'pic5.jpg'];
 /* Declaring the alternative text for each image file */
 const altText = ['Image 1', 'Image 2', 'Image 3', 'Image 4', 'Image 5'];
 /* Looping through images */
+for (let i = 0; i < imageNames.length; i++) {
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', 'images/' + imageNames[i]);
+    newImage.setAttribute('alt', altText[i]);
+    thumbBar.appendChild(newImage);
+    // set the src of the main image = to the src of the clicked thumbnail
+    newImage.addEventListener('click', function(e) {
+        // when the thumbnail is clicked, change displayed image to the thumbnail
+        // https://www.w3schools.com/jsref/event_target.asp
 
-const newImage = document.createElement('img');
-newImage.setAttribute('src', xxx);
-newImage.setAttribute('alt', xxx);
-thumbBar.appendChild(newImage);
+        displayedImage.setAttribute('src', e.target.getAttribute('src'));
+
+        // update the alt text
+        displayedImage.setAttribute('alt', e.target.getAttribute('alt'));
+        
+    });
+}
+
+
 
 /* Wiring up the Darken/Lighten button */
