@@ -28,5 +28,20 @@ for (let i = 0; i < imageNames.length; i++) {
 }
 
 
-
 /* Wiring up the Darken/Lighten button */
+btn.addEventListener('click', function() {
+    // get current class
+    const currentClass = btn.getAttribute('class');
+
+    // if btn has dark class, switch to light - update text content, and darken overlay
+    if (currentClass === 'dark') {
+        btn.setAttribute('class', 'light');
+        btn.textContent = 'Lighten';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    } else {
+        // if btn has light class, switch to dark - update text content, and lighten overlay
+        btn.setAttribute('class', 'dark');
+        btn.textContent = 'Darken';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+    }
+});
